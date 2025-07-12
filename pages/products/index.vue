@@ -25,7 +25,7 @@ const setSelectedCategory = (selected: string): void => {
 const {data: products, pending, error } = useAsyncData ('products-data', async ()=>{
  const response:any = await $fetch('https://dummyjson.com/products?delay=100');
  return response.products;
-},{lazy: true});
+});
 
 const categories = computed(()=>{
  if (!products.value) return []

@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@pinia/nuxt',
   ],
   css: [
     'bootstrap/dist/css/bootstrap.min.css',
