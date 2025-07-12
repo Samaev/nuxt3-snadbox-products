@@ -16,16 +16,22 @@
 </template>
 <script setup lang="ts">
 import type {Product} from '~/types/Product';
+import { useProductsStore } from '~/stores/products';
+const productsStore = useProductsStore();
 import ProductCard from "~/components/ProductCard.vue";
 
 const selectedCategory = ref('');
 const setSelectedCategory = (selected: string): void => {
  selectedCategory.value = selected;
 }
-const {data: products, pending, error } = useAsyncData ('products-data', async ()=>{
- const response:any = await $fetch('https://dummyjson.com/products?delay=100');
- return response.products;
+const { pending, error } = useAsyncData ('products-data', async ()=>{
+ if (productsStore.list.length === 0) {
+  await productsStore.fetchProducts();
+ }
+ return true;
 });
+
+const products = computed<Product[]>(() => productsStore.allProducts);
 
 const categories = computed(()=>{
  if (!products.value) return []
