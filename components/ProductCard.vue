@@ -15,7 +15,7 @@
      placeholder
      width="140"
      height="140"
-     :alt="product.title" loading="lazy"
+     :alt="props.product.title" loading="lazy"
    />
    <div>Price: {{ props.product.price}}</div>
    <div>Rating: {{ props.product.rating}}</div>
