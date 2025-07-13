@@ -8,8 +8,15 @@
     {{ props.product.category }}
    </p>
   </div>
-  <div class="card-body d-flex align-items-center justify-content-between my-1 p-2" style="height: 120px">
-   <img :src="props.product.thumbnail" class="img-thumbnail w-auto" style="height: 120px" alt="">
+  <div class="card-body d-flex align-items-center justify-content-between my-1 p-2">
+   <NuxtImg
+     :src="props.product.thumbnail"
+     class="img-thumbnail w-auto"
+     placeholder
+     width="140"
+     height="140"
+     :alt="product.title" loading="lazy"
+   />
    <div>Price: {{ props.product.price}}</div>
    <div>Rating: {{ props.product.rating}}</div>
   </div>

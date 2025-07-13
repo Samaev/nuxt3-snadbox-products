@@ -1,7 +1,9 @@
 <template>
- <Header/>
- <slot></slot>
- <h3>Footer</h3>
+ <div class="container">
+  <Header/>
+  <slot></slot>
+  <h3>Footer</h3>
+ </div>
 </template>
 <script setup lang="ts">
 useSeoMeta({
